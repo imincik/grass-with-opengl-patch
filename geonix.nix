@@ -1,18 +1,15 @@
 
-{ inputs, config, lib, pkgs, ... }:
+{ self, inputs, config, lib, pkgs, ... }:
 
 let
   geopkgs = inputs.geonix.packages.${pkgs.system};
-  grassgl = inputs.grassgl.legacyPackages.${pkgs.system};
+  grass = self.packages.${pkgs.system}.grass;
 
 in {
   
   name = "grassgl";
 
-  packages = [
-    # grassgl.grass                                    # without openGL
-    (grassgl.grass.override { enableOpenGL = true; })  # with openGL
-  ];
+  packages = [ grass ];
 
   nixgl.enable = true;
 

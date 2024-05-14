@@ -4,9 +4,12 @@
   nixConfig = {
     extra-substituters = [
       "https://geonix.cachix.org"
+      "https://imincik.cachix.org"
+
     ];
     extra-trusted-public-keys = [
       "geonix.cachix.org-1:iyhIXkDLYLXbMhL3X3qOLBtRF8HEyAbhPXjjPeYsCl0="
+      "imincik.cachix.org-1:/EPOOKRLr6xUzu3pMo8pKBxQf7RrPXUeTY9FThR/aok="
     ];
     bash-prompt = "\\[\\033[1m\\][geonix]\\[\\033\[m\\]\\040\\w >\\040";
   };
@@ -48,6 +51,7 @@
         };
 
         packages.geonixcli = inputs.geoenv.packages.${system}.geonixcli;
+        packages.grass = (inputs.grassgl.legacyPackages.${system}.grass.override { enableOpenGL = true; });
       };
 
       flake = {

@@ -1,5 +1,8 @@
 # Usage
 
+* Clone this repo
+
+* Launch a shell environment
 ```
-nix run github:imincik/grass-with-opengl-patch#geonixcli -- shell
+nix run .#geonixcli -- shell
 ```
